@@ -1,7 +1,7 @@
 ---
 layout: post
 title: KERBEROS DELEGATION 
-date: 30.01.2025
+date: 19.03.2025
 categories: [Active Directory, Windows, Kerberos, Authentication]
 tag: [Windows, AD, Active Directory, Authentication Protocol, Delegation, Constrained Delegation, Unconstrained Delegation, RBCD, Resource Based Constrained Delegation, SSO, Single Sign On]
 ---
